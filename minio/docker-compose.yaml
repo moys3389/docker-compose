@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  minio:
+    container_name: minio
+    image: minio/minio
+    ports:
+      - 9000:9000
+      - 9090:9090
+    volumes:
+      - ./data:/data
+      - ./config:/root/.minio
+    environment:
+      MINIO_ROOT_USER: root
+      MINIO_ROOT_PASSWORD: Pass@Word9
+    command: minio server /data --console-address ":9090"
+    restart: unless-stopped

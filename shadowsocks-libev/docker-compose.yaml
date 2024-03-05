@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  shadowsocks-libev:
+    container_name: shadowsocks-libev
+    image: shadowsocks/shadowsocks-libev
+    ports:
+      - 8388:8388
+      - 8388:8388/udp
+    environment:
+      - METHOD=aes-256-gcm
+      - PASSWORD=Pass@Word9
+    restart: unless-stopped

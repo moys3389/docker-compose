@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  ssserver-rust:
+    container_name: ssserver-rust
+    image: ghcr.io/shadowsocks/ssserver-rust
+    ports:
+      - 8388:8388
+      - 8388:8388/udp
+    volumes:
+      - ./config.json:/etc/shadowsocks-rust/config.json
+    restart: unless-stopped
